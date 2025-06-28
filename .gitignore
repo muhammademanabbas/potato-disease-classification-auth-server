@@ -1,0 +1,3 @@
+# node modules and .env directory
+node_modules/
+.env
