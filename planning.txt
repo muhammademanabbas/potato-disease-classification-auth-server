@@ -22,18 +22,19 @@ Potato Disease Classification app functionality
 Routes
 
 User Authentication:
-    /signup: POST - Create a new user account.
-    /login: POST - Log in to an existing account.[Emaild id (example@gmail.com) + password]
+    /auth/signup: POST - Create a new user account.
+    /auth/login:  POST - Log in to an existing account.[Emaild id (example@gmail.com) + password]
 
 USER History:
     /history:                   GET    - Get the list of user's history.
     /history:                   POST   - Save the history.
     /history:                   DELETE - DELETE all the histry of the user's if exist.
-    /history/:historyEntryId:   DELTE  - DELETE the single history entry of th user if exist.
+    /history/:historyEntryId:   DELETE  - DELETE the single history entry of th user if exist.
 
 User Profile:
-    /profile:          GET - Get the user's profile information.
-    /profile/password: PUT - Change the user's password.
+    /user/profile:          GET    - Get the user's profile information.
+    /user/profile/password: PATCH  - Change the user's password.
+    /user/profile/delete:   DELETE - DELETE user account with entire history.
 
 ----------------------------------------------------------------
 
