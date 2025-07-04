@@ -17,12 +17,7 @@ const userSchema  = mongoose.Schema({
         type: String,
         required: true
     },
-    googleId: {
-        type: String,
-        unique: true, // Google IDs should also be unique
-        sparse: true // Allows multiple documents to have a null value for googleId
-    },
-})
+});
 
 userSchema.pre("save",async function(next){
     const user  =  this;

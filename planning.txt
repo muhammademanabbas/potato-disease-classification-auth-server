@@ -1,0 +1,58 @@
+--------Potato Disease Classification application--------
+
+WHAT ???
+A functionality where user can signup and store history of their predictions!
+
+
+Models?
+Routes?
+
+Potato Disease Classification app functionality
+
+1. user sign in / sign up
+2. usr can see, save, delete the history of his prediction after signin
+3. there is a route which shows the list of history of the user's sorted by their date,time
+4. user data must contain their one uqiue email id proof named : email
+5. user can change their password
+6. user can login only with email and password
+
+
+----------------------------------------------------------------
+
+Routes
+
+User Authentication:
+    /signup: POST - Create a new user account.
+    /login: POST - Log in to an existing account.[Emaild id (example@gmail.com) + password]
+
+USER History:
+    /history:                   GET    - Get the list of user's history.
+    /history:                   POST   - Save the history.
+    /history:                   DELETE - DELETE all the histry of the user's if exist.
+    /history/:historyEntryId:   DELTE  - DELETE the single history entry of th user if exist.
+
+User Profile:
+    /profile:          GET - Get the user's profile information.
+    /profile/password: PUT - Change the user's password.
+
+----------------------------------------------------------------
+
+Models
+
+-Auth Schema 
+Outlines the fields for USER AUTHENTICATION:
+
+1. name:     String, required, trimmed.
+2. email:    String, required, unique.
+3. password: String, required.
+
+
+-History Schema Planning
+Outlines the fields for storing user history data:
+
+1. userId:              Refers to the user model, required. Links history entries to specific users.
+2. originalFileName:    String, required. Stores the name of the uploaded file.
+3. diseaseDetected:     String, required. Indicates the detected disease or "Healthy."
+4. confidence:          Number, required. Represents the confidence level of the detection.
+5. classificationDate:  Date, defaults to now. Records when the classification occurred.
+6. base64Image:         String, required. Stores the base64 encoded image data.

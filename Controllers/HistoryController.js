@@ -3,7 +3,6 @@ const HistoryModel = require("../Models/HistorySchema");
 // This controller handles saving classification history for users
 const saveClassificationHistory = async (req, res) => {
   try {
-    console.log("Request body:", req.body);
 
     if (!req.file) {
       return res
@@ -11,7 +10,6 @@ const saveClassificationHistory = async (req, res) => {
         .json({ success: false, message: "No file uploaded." });
     }
 
-    console.log("File uploaded successfully:", req.file);
 
     const base64Image = req.file.buffer.toString("base64");
 

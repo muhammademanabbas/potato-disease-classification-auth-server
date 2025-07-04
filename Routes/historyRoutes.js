@@ -7,9 +7,9 @@ const multer = require("multer");
 const storage = multer.memoryStorage();
 const upload = multer({ storage });
 
-router.post("/save/history", jwtAuthMiddleware, upload.single("potatoleafImage"), saveClassificationHistory);
-router.delete("/clear/history", jwtAuthMiddleware, clearAllHistory);
-router.delete("/clear/history/:id", jwtAuthMiddleware, clearSingleHistoryEntry);
-router.get("/get/history", jwtAuthMiddleware, getClassificationHistory);
+router.get("/", jwtAuthMiddleware, getClassificationHistory);
+router.post("/", jwtAuthMiddleware, upload.single("potatoleafImage"), saveClassificationHistory);
+router.delete("/", jwtAuthMiddleware, clearAllHistory);
+router.delete("/:id", jwtAuthMiddleware, clearSingleHistoryEntry);
 
 module.exports = router;
